@@ -1,0 +1,27 @@
+{% extends "base.html" %} 
+{% block start %} 
+{% include 'home/header.html' %}
+
+<div class="container" style="padding: 30px;">
+ <section id-"services" class="services section-padding">
+    <div class-"container">
+        <form action="{% url "add_to_cart" %}" method="POST">
+        {% csrf_token %}
+        <div class="mb-3">
+            <label for="name" class="form-label">Product Name</label>
+            <input type="text" class="form-control" id="name" name="name" aria-describedby="name" required>
+        </div>
+        <div class="mb-3">
+            <label for="phone" class="form-label">Phone Number</label>
+            <input type="phone" class="form-control" id="phone" name="phone" required>
+        </div>
+        <div class="mb-3">
+            <label for="product">pruduct Id</label>
+            <textarea class="form-control" name="product" id="product" cols="30" rows="5"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+ </section>
+</div>
+
+{% include 'home/footer.html' %} {% endblock %}

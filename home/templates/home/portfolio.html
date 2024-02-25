@@ -1,0 +1,41 @@
+{% extends "base.html" %} {% block start %} {% include 'home/header.html' %}
+
+<div class="container">
+  <div class="row my-4">
+  {% for m in identy %}
+    <div class="col-lg-3">
+      <div class="card py-4 mb-4">
+        <div class="col-6 m-auto">
+          <img
+            class="card-img-top rounded-circle img-fluid"
+            src="{{ m.image.url }}"
+            alt="Card image cap"
+          />
+        </div>
+        <div class="card-body text-center">
+          <h5 class="card-title">{{ m.name }}</h5>
+          <p class="card-text">
+           {{m.text}}
+          </p>
+        </div>
+        <div class="social-icons text-center">
+          <a href="#" class="card-link"
+            ><i class="bi bi-twitter text-dark mx-1"></i
+          ></a>
+          <a href="#" class="card-link"
+            ><i class="bi bi-instagram text-dark mx-1"></i
+          ></a>
+          <a href="#" class="card-link"
+            ><i class="bi bi-facebook text-dark mx-1"></i
+          ></a>
+          <a href="#" class="card-link"
+            ><i class="bi bi-linkedin text-dark mx-1"></i
+          ></a>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+
+{% include 'home/footer.html' %} {% endblock %}

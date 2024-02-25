@@ -1,0 +1,72 @@
+{% comment %} {% extends "base.html" %} {% block start %} {% include 'home/header.html' %}
+
+<br />
+<div class="container" style="margin-bottom: 100px">
+  <div class="row mb-2">
+    {% for c in cows %}
+    <div class="col-md-6">
+      <div
+        class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative"
+      >
+        <div class="col p-4 d-flex flex-column position-static">
+          <strong class="d-inline-block mb-2 text-primary-emphasis"
+            >{{c.name}}</strong
+          >
+          <h3 class="mb-0">Colour {{ c.colour }}</h3>
+          <div class="mb-1 text-body-secondary">Age {{ c.age }} year</div>
+          <p class="card-text mb-auto">Weight {{ c.weight }} kg</p>
+          <p class="card-text mb-auto">per kg price {{ c.per_kg_cost }} Tk</p>
+          <a href="#" class="icon-link gap-1 icon-link-hover stretched-link">
+            <p class="card-text mb-auto">{{ c.discription}}</p>
+            Continue reading
+            <svg class="bi"><use xlink:href="#chevron-right"></use></svg>
+          </a>
+          <br />
+          <form action="/" method="POST">
+          {% csrf_token %}
+            <input hidden type="text" name="product" value={{c.id}}>
+            <input
+              type="submit"
+              style="
+                background-color: #448e5e;
+                text-decoration: none;
+                width: 100px;
+                text-align: center;
+                color: #fff;
+                padding: 5px;
+                border-radius: 4px;
+              "
+              class="float-right btn btn-light border btn-sm"
+              value="Add To Cart"
+            />
+            <input
+              type="submit"
+              style="
+                background-color: #448e5e;
+                text-decoration: none;
+                width: 100px;
+                text-align: center;
+                color: #fff;
+                padding: 5px;
+                border-radius: 4px;
+              "
+              class="float-right btn btn-light border btn-sm"
+              value="Buy Now"
+            />
+          </form>
+        </div>
+        <div class="col-auto d-none d-lg-block">
+          <img
+            src="{{ c.pic.url }}"
+            alt="Goat Image"
+            width="200"
+            height="250"
+          />
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+
+{% include 'home/footer.html' %} {% endblock %} {% endcomment %}

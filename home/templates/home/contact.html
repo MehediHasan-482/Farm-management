@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% block start %}
+
+{% include 'home/header.html' %}
+
+<div class="container" style="padding: 30px;">
+ <section id-"services" class="services section-padding">
+    <div class-"container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="section-header text-center pb-5">
+                    <h2>Contact Us</h2>
+                    <p>We are<br> Mehedi,Shimu,Eshan,Fatema,Tonni,Era</p>
+                </div>
+            </div>
+        </div>
+
+        <form action="{% url "contact" %}" method="POST">
+        {% csrf_token %}
+        <div class="mb-3">
+            <label for="name" class="form-label">Name</label>
+            <input type="text" class="form-control" id="name" name="name" aria-describedby="name" required>
+        </div>
+        <div class="mb-3">
+            <label for="email" class="form-label">Email address</label>
+            <input type="email" class="form-control" id="email" name="email" aria-describedby="emailHelp" required>
+            <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+        </div>
+        <div class="mb-3">
+            <label for="phone" class="form-label">Phone Number</label>
+            <input type="phone" class="form-control" id="phone" name="phone" required>
+        </div>
+        <div class="mb-3">
+            <label for="content">How may we help you ?</label>
+            <textarea class="form-control" name="content" id="content" cols="30" rows="5"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+ </section>
+</div>
+
+{% include 'home/footer.html' %}
+
+
+{% endblock %}

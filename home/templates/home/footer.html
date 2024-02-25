@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Responsive Footer</title>
+  <style>
+    /* Inline CSS for simplicity */
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    .footer {
+      background-color: #333;
+      color: #fff;
+      text-align: center;
+      {% comment %} position: fixed; {% endcomment %}
+      bottom: 0;
+      width: 100%;
+      padding: 20px 0;
+    }
+
+    /* Media query for responsiveness */
+    @media screen and (max-width: 600px) {
+      .footer {
+        font-size: 14px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="footer">
+    <!-- Footer content -->
+    <p>&copy; FARM management</p>
+    {% comment %} <p>my name is mehedi hasan kanok</p>{% endcomment %}
+    
+  </div>
+</body>
+</html>
